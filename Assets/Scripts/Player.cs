@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
         cam = Camera.main;
         rig = GetComponent<Rigidbody>();
         weapon = GetComponent<Weapon>();
+
+
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     private void Update()
