@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
+        Cameralook();
     }
 
     void Move()
@@ -35,6 +36,16 @@ public class Player : MonoBehaviour
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
         rig.velocity = new Vector3(x, rig.velocity.y, z);
+    }
 
+    void Cameralook()
+    {
+        float y = Input.GetAxis("Mouse X") * lookSensitivity;
+        rotX += Input.GetAxis("Mouse Y") * lookSensitivity;
+        rotX = Mathf.Clamp(rotX, minLookX, maxLookX);
+
+        cam.transform.localRotation = Quaternion.Euler(-rotX, 0, 0);
+        transform.eulerAngles += Vector3.up * y;
     }
 }
+
