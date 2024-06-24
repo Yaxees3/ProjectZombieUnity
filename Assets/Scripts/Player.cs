@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
+        if (Input.GetButtonDown("Jump"))
+        {
+            TryJump();
+        }
         Cameralook();
     }
 
@@ -35,7 +39,10 @@ public class Player : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
-        rig.velocity = new Vector3(x, rig.velocity.y, z);
+        Vector3 dir = transform.right * x + transform.forward * z;
+        dir.y = rig.velocity.y;
+        rig.velocity = dir;
+        
     }
 
     void Cameralook()
@@ -47,5 +54,18 @@ public class Player : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(-rotX, 0, 0);
         transform.eulerAngles += Vector3.up * y;
     }
+
+
+    void TryJump()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        if(Physics.Raycast(ray,1.1f))
+        {
+            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+
+    }
+
+
 }
 
