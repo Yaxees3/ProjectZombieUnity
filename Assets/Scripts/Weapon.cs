@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     public float bulletSpeed;
     public float shootRate;
-    public float lastShootTime;
+    private float lastShootTime;
     public bool isPlayer;
 
 
@@ -40,6 +40,10 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
+        lastShootTime = Time.time;
+        currentAmmo -= 1;
 
+        GameObject bullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
     }
 }

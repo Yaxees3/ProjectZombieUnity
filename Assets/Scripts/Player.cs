@@ -16,20 +16,25 @@ public class Player : MonoBehaviour
 
     private Camera cam;
     private Rigidbody rig;
+    private Weapon weapon;
 
 
     private void Awake()
     {
         cam = Camera.main;
         rig = GetComponent<Rigidbody>();
+        weapon = GetComponent<Weapon>();
     }
 
     private void Update()
     {
         Move();
         if (Input.GetButtonDown("Jump"))
+             TryJump();
+        if(Input.GetButton("Fire1"))
         {
-            TryJump();
+            if (weapon.CanShoot())
+                weapon.Shoot();
         }
         Cameralook();
     }
