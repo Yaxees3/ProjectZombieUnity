@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Stars")]
+    public int CurrentHP;
+    public int MaxHP;
+
     [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
@@ -73,7 +77,22 @@ public class Player : MonoBehaviour
         }
 
     }
+    public void TakeDamage(int damage)
+    {
+      
+        CurrentHP -= damage;
+        if (CurrentHP <= 0)
+            Die();
+    }
+
+
+    void Die()
+    {
+        
+    }
 
 
 }
+
+
 
