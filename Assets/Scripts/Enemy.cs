@@ -42,6 +42,12 @@ public class Enemy : MonoBehaviour
             ChasePlayer();
         }
 
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+
+        float angel = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+
+        transform.eulerAngles = Vector3.up * angel;
+
         
     }
 
