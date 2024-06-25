@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 59645107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248865584}
+        m_TargetAssemblyTypeName: UIMenager, Assembly-CSharp
+        m_MethodName: OnRestartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &59645107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &118545462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -651,6 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248865585}
   - component: {fileID: 248865584}
+  - component: {fileID: 248865586}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -692,6 +705,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248865586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248865583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc52764683ba814596696348629f855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToWin: 1
+  currentScore: 0
+  gamePaused: 0
 --- !u!1 &303440510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +2038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138103987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248865584}
+        m_TargetAssemblyTypeName: UIMenager, Assembly-CSharp
+        m_MethodName: OnMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138103987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,7 +2902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1607511937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248865584}
+        m_TargetAssemblyTypeName: UIMenager, Assembly-CSharp
+        m_MethodName: OnMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1607511937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3147,7 +3199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1789875501}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248865584}
+        m_TargetAssemblyTypeName: UIMenager, Assembly-CSharp
+        m_MethodName: OnResumeButron
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1789875501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3403,13 +3467,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 248865583}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 248865584}
+        m_TargetAssemblyTypeName: UIMenager, Assembly-CSharp
+        m_MethodName: OnRestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3961,8 +4025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631da3f1d2a0954089b0117339a8596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHP: 100
-  MaxHP: 100
+  currentHP: 100
+  maxHP: 100
   moveSpeed: 4
   jumpForce: 2
   lookSensitivity: 5
