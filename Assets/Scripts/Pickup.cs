@@ -13,7 +13,33 @@ public class Pickup : MonoBehaviour
     public PickupType type;
     public int value;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    [Header("Moving")]
+    public float rotateSpeed; 
+    public float bobSpeed;
+    public float bobHeight;
+
+    private Vector3 startPosition;
+    private bool bobbingUp;
+
+
+    private void Start()
+    {
+        startPosition = transform.position; 
+    }
+
+    private void Update()
+    {
+        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+
+        Vector3 offset = bobbingUp == true ? new Vector3(0, bobHeight / 2, 0) : new Vector3(0, -bobHeight / 2, 0);
+
+        transform.position = Vector3.MoveTowards(transform.position,startPosition+offset,bobSpeed*Time.deltaTime);  
+
+        if (transform.position ==startPosition+offset )
+            bobbingUp = !bobbingUp;
+
+    }
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -29,6 +55,8 @@ public class Pickup : MonoBehaviour
                     break; 
 
             }
+
+            Destroy(gameObject);
         }
     }
 }
