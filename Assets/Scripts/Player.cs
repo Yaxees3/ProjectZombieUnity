@@ -91,6 +91,16 @@ public class Player : MonoBehaviour
         
     }
 
+    public void Givehealth(int amountToGive)
+    {
+        CurrentHP = Mathf.Clamp(CurrentHP + amountToGive, 0, MaxHP);
+
+    }
+
+    public void GiveAmmo(int amountToGive)
+    {
+        weapon.currentAmmo = Mathf.Clamp(weapon.currentAmmo + amountToGive, 0, weapon.maxAmmo);
+    }
 
 }
 
