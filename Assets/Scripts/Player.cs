@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Camera cam;
     private Rigidbody rig;
     private Weapon weapon;
+    public CharacterController controller;
 
 
     private void Awake()
@@ -63,6 +64,9 @@ public class Player : MonoBehaviour
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
         Vector3 dir = transform.right * x + transform.forward * z;
+        dir.Normalize();
+        dir *= moveSpeed * Time.deltaTime;
+        controller.Move(dir);
         dir.y = rig.velocity.y;
         rig.velocity = dir;
         
