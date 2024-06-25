@@ -50,7 +50,7 @@ public class UIMenager : MonoBehaviour
     public void SetEndGameScreen(bool won, int score)
     {
         endGameScreen.SetActive(true);
-        endGameHeaderText.text = won == true ? "Wygranko" : "Przegranko";
+        endGameHeaderText.text = won == true ? "Tou Win" : "You lose";
         endGameHeaderText.color = won == true ? Color.green : Color.red;
         endGameScoreText.text = "<b>Score</b>" + score;
   
@@ -58,7 +58,7 @@ public class UIMenager : MonoBehaviour
 
     public void OnResumeButron()
     {
-
+        GameManager.instance.TogglePausedGame();
     }
 
     public void OnRestartButton()

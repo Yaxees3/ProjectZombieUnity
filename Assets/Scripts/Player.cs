@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Stars")]
-    public int CurrentHP;
-    public int MaxHP;
+    public int currentHP;
+    public int maxHP;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -33,8 +33,19 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; 
     }
 
+    private void Start()
+    {
+        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        UIMenager.instance.UpdateScoreText(0);
+        UIMenager.instance.UpdateAmmoText(weapon.currentAmmo, weapon.maxAmmo);
+    }
+
     private void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
+
         Move();
         if (Input.GetButtonDown("Jump"))
              TryJump();
@@ -80,26 +91,31 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
       
-        CurrentHP -= damage;
-        if (CurrentHP <= 0)
+        currentHP -= damage;
+        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        if (currentHP <= 0)
             Die();
     }
 
 
     void Die()
     {
-        
+        GameManager.instance.LoseGame();
     }
 
     public void Givehealth(int amountToGive)
     {
-        CurrentHP = Mathf.Clamp(CurrentHP + amountToGive, 0, MaxHP);
+        currentHP = Mathf.Clamp(currentHP + amountToGive, 0, maxHP);
+
+        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
 
     }
 
     public void GiveAmmo(int amountToGive)
     {
         weapon.currentAmmo = Mathf.Clamp(weapon.currentAmmo + amountToGive, 0, weapon.maxAmmo);
+
+        UIMenager.instance.UpdateAmmoText(weapon.currentAmmo,weapon.maxAmmo);   
     }
 
 }

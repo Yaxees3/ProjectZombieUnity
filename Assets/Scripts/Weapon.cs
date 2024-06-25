@@ -43,6 +43,9 @@ public class Weapon : MonoBehaviour
         lastShootTime = Time.time;
         currentAmmo -= 1;
 
+        if(isPlayer ) 
+            UIMenager.instance.UpdateAmmoText(currentAmmo, maxAmmo);
+
         GameObject bullet = bulletPool.GetObject();
 
         bullet.transform.position = muzzle.position;
