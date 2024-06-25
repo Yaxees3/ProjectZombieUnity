@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   lifeTime: 3
+  Hiteffect: {fileID: 755962401454254614, guid: 769b0b97100a3ad4fa18e27a645557d4, type: 3}
