@@ -29,9 +29,16 @@ public class Bullet : MonoBehaviour
             GameObject obj = Instantiate(Hiteffect, transform.position, Quaternion.identity);
             Destroy(obj, 0.5f);
         }
-            
+        else if (other.CompareTag("Enemy2"))
+        {
+            other.GetComponent<Enemy2>().TakeDamage(damage);
 
-       
+            GameObject obj = Instantiate(Hiteffect, transform.position, Quaternion.identity);
+            Destroy(obj, 0.5f);
+        }
+
+
+
 
     }
 

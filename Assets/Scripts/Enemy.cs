@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 public class Enemy : MonoBehaviour
-{
+{  
     [Header("Stars")]
     public int CurrentHP;
     public int MaxHP;
