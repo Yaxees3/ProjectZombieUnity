@@ -10,8 +10,12 @@ public enum PickupType
 }
 public class Pickup : MonoBehaviour
 {
+
     public PickupType type;
     public int value;
+
+    public AudioClip pickupSFX;
+
 
     [Header("Moving")]
     public float rotateSpeed; 
@@ -55,7 +59,7 @@ public class Pickup : MonoBehaviour
                     break; 
 
             }
-
+            other.GetComponent<AudioSource>().PlayOneShot(pickupSFX);
             Destroy(gameObject);
         }
     }

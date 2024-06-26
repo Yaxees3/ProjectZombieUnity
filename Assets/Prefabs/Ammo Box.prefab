@@ -639,6 +639,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   value: 30
+  pickupSFX: {fileID: 8300000, guid: f8aac9d421a87aa4aa3679d1ba10f702, type: 3}
+  rotateSpeed: 0
+  bobSpeed: 0
+  bobHeight: 0
 --- !u!33 &7987046070483871517
 MeshFilter:
   m_ObjectHideFlags: 0
