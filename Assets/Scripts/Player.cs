@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public Image image;
     public float flashSpeed;
     private Coroutine fadeAway;
+    private AudioSource audioSource;
+    public AudioClip playerHurtSFX;
 
 
     private void Awake()
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
         cam = Camera.main;
         rig = GetComponent<Rigidbody>();
         weapon = GetComponent<Weapon>();
+        audioSource = GetComponent<AudioSource>();
 
 
         Cursor.lockState = CursorLockMode.Locked; 
@@ -99,7 +102,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-      
+        audioSource.PlayOneShot(playerHurtSFX);
         currentHP -= damage;
         UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
         FlashDamage();
