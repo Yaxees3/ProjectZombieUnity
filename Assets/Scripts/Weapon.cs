@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     public bool isPlayer;
 
     public AudioClip shootSFX;
+    public GameObject muzzleFlash;
     private AudioSource audioSource;
 
 
@@ -53,6 +54,8 @@ public class Weapon : MonoBehaviour
             UIMenager.instance.UpdateAmmoText(currentAmmo, maxAmmo);
 
         audioSource.PlayOneShot(shootSFX);
+        GameObject MF = Instantiate(muzzleFlash,muzzle.transform.position,transform.rotation*Quaternion.Euler(90,0,0));
+        Destroy(MF, 0.05f);
 
         GameObject bullet = bulletPool.GetObject();
 
