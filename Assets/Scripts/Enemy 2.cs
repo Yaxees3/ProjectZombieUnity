@@ -14,6 +14,8 @@ public class Enemy2: MonoBehaviour
     private bool isDead;
 
     public NavMeshAgent agent;
+    public Animator anim;
+    public GameObject bloodEffect;
 
     private void Update()
     {
@@ -33,13 +35,15 @@ public class Enemy2: MonoBehaviour
 
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
+            anim.SetBool("Running", true);    
         }
     }
 
     void Attack()
     {
         isAttacking = true;
-
+        anim.SetBool("Running",false);
+        anim.SetTrigger("Attack");
         Invoke("TryDamage", 1.2f);
         Invoke("DisableIsAttacking", 2.5f);
     }
@@ -54,7 +58,7 @@ public class Enemy2: MonoBehaviour
 
     void DisableIsAttackig()
     {
-        isAttacking = false;    
+        isAttacking = false;
     }
 
     public void TakeDamage(int damageToTake)
@@ -65,7 +69,11 @@ public class Enemy2: MonoBehaviour
         {
             isDead = true;
             agent.isStopped = true;
-
+            anim.SetTrigger("Die");
+            GetComponent<Collider>().enabled = false;
+            GameObject obj = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            Destroy(obj, 20f);
+            Destroy(gameObject, 5f);
         }
     }
 
