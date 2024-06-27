@@ -37,12 +37,12 @@ public class Enemy2: MonoBehaviour
             {
                 agent.isStopped = false;
                 agent.SetDestination(player.transform.position);
-                anim.SetBool("idle", false);
+                anim.SetBool("Idle", false);
                 anim.SetBool("Running", true);
             }
             else
             {
-                agent.isStopped = true;
+                agent.isStopped = false;
                 anim.SetBool("Idle", true) ;
                 anim.SetBool("Running", false) ;
             }
@@ -69,7 +69,7 @@ public class Enemy2: MonoBehaviour
         }
     }
 
-    void DisableIsAttackig()
+    void DisableIsAttacking()
     {
         isAttacking = false;
     }
