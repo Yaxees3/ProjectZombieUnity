@@ -77,14 +77,16 @@ public class Enemy2: MonoBehaviour
     public void TakeDamage(int damageToTake)
     {
         health -= damageToTake;
-
-        if(health < 0)
+        GameObject blood = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        Destroy(blood, 20f);
+        if (health < 0)
         {
             isDead = true;
             agent.isStopped = true;
             anim.SetTrigger("Die");
             GetComponent<Collider>().enabled = false;
             GameObject obj = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            
             Destroy(obj, 20f);
             Destroy(gameObject, 5f);
         }

@@ -3554,6 +3554,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822895644}
     - target: {fileID: 8429164975203304507, guid: c597a03618f99d54fa49ff2ece20c9f6, type: 3}
+      propertyPath: bloodEffect
+      value: 
+      objectReference: {fileID: 8149370369688055536, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+    - target: {fileID: 8429164975203304507, guid: c597a03618f99d54fa49ff2ece20c9f6, type: 3}
       propertyPath: chaseDistance
       value: 7
       objectReference: {fileID: 0}
@@ -5169,6 +5173,63 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1001 &2632738453263241179
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121289332348831740, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149370369688055536, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
+      propertyPath: m_Name
+      value: Blood track Effect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d7f91b9b2aa57a47872f3aa930c9810, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5182,3 +5243,4 @@ SceneRoots:
   - {fileID: 1288511280}
   - {fileID: 780223616}
   - {fileID: 1552995363}
+  - {fileID: 2632738453263241179}
