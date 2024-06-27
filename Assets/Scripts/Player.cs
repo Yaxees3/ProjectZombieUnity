@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        UIMenager.instance.UpdateHealthBar(currentHP, maxHP);
         UIMenager.instance.UpdateScoreText(0);
         UIMenager.instance.UpdateAmmoText(weapon.currentAmmo, weapon.maxAmmo);
     }
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         audioSource.PlayOneShot(playerHurtSFX);
         currentHP -= damage;
-        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        UIMenager.instance.UpdateHealthBar(currentHP, maxHP);
         FlashDamage();
         if (currentHP <= 0)
             Die();
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
     {
         currentHP = Mathf.Clamp(currentHP + amountToGive, 0, maxHP);
 
-        UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        UIMenager.instance.UpdateHealthBar(currentHP, maxHP);
 
     }
 

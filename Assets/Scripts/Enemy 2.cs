@@ -10,6 +10,7 @@ public class Enemy2: MonoBehaviour
     public float chaseDistance;
     public int damage;
     public int health;
+    public int ScoreToGive;
 
     private bool isAttacking;
     private bool isDead;
@@ -97,7 +98,12 @@ public class Enemy2: MonoBehaviour
             
             Destroy(obj, 20f);
             Destroy(gameObject, 5f);
+            GameManager.instance.AddScore(ScoreToGive);
+
+            
+            
         }
+
     }
 
 }

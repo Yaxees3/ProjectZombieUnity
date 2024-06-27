@@ -27,7 +27,7 @@ public class UIMenager : MonoBehaviour
         instance = this; 
     }
 
-    public void UpdateHEalthBar(int currentHP, int maxHP)
+    public void UpdateHealthBar(int currentHP, int maxHP)
     {
         healthBarFilll.fillAmount = (float)currentHP/(float)maxHP;
     }
@@ -56,14 +56,14 @@ public class UIMenager : MonoBehaviour
   
     }
 
-    public void OnResumeButron()
+    public void OnResumeButton()
     {
         GameManager.instance.TogglePausedGame();
     }
 
     public void OnRestartButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Hospital");
 
     }
     public void OnMenuButton()
