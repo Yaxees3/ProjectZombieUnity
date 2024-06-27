@@ -18,6 +18,13 @@ public class Enemy2: MonoBehaviour
     public Animator anim;
     public GameObject bloodEffect;
 
+    private AudioSource audioSource;
+    public AudioClip ZombieHurtSFX;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (isDead)
@@ -77,6 +84,7 @@ public class Enemy2: MonoBehaviour
     public void TakeDamage(int damageToTake)
     {
         health -= damageToTake;
+        audioSource.PlayOneShot(ZombieHurtSFX);
         GameObject blood = Instantiate(bloodEffect, transform.position, Quaternion.identity);
         Destroy(blood, 20f);
         if (health < 0)
