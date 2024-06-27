@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour
     private Rigidbody rig;
     private Weapon weapon;
     public CharacterController controller;
+
+    public Image image;
+    public float flashSpeed;
+    private Coroutine fadeAway;
 
 
     private void Awake()
@@ -97,6 +102,7 @@ public class Player : MonoBehaviour
       
         currentHP -= damage;
         UIMenager.instance.UpdateHEalthBar(currentHP, maxHP);
+        FlashDamage();
         if (currentHP <= 0)
             Die();
     }
@@ -122,6 +128,32 @@ public class Player : MonoBehaviour
         UIMenager.instance.UpdateAmmoText(weapon.currentAmmo,weapon.maxAmmo);   
     }
 
+
+
+    public void FlashDamage()
+    {
+        if(fadeAway !=null)
+            StopCoroutine(fadeAway);
+
+        image.enabled = true;
+        image.color = Color.white;
+        fadeAway = StartCoroutine(FadeAway());
+    }
+
+    IEnumerator FadeAway()
+    {
+        float a = 1.0f;
+
+        while(a>0.0f)
+        {
+            a-=(1.0f/flashSpeed) * Time.deltaTime;
+            image.color = new Color(1.0f, 1.0f, 1.0f, a);
+
+            yield return null;
+        }
+
+        image.enabled = false;
+    }
 }
 
 
