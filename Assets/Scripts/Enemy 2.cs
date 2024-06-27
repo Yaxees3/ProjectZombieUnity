@@ -7,6 +7,7 @@ public class Enemy2: MonoBehaviour
 {
     public Player player;
     public float attackDistance;
+    public float chaseDistance;
     public int damage;
     public int health;
 
@@ -32,10 +33,22 @@ public class Enemy2: MonoBehaviour
         }
         else
         {
-
-            agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
-            anim.SetBool("Running", true);    
+            if(Vector3.Distance(transform.position, player.transform.position) < chaseDistance)
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+                anim.SetBool("idle", false);
+                anim.SetBool("Running", true);
+            }
+            else
+            {
+                agent.isStopped = true;
+                anim.SetBool("Idle", true) ;
+                anim.SetBool("Running", false) ;
+            }
+            
+            
+                
         }
     }
 

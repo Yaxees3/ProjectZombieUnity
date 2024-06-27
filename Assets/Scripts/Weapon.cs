@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
     public AudioClip shootSFX;
     public GameObject muzzleFlash;
     private AudioSource audioSource;
+    public Animator handGunAnim;
 
 
     void Awake()
@@ -54,6 +55,8 @@ public class Weapon : MonoBehaviour
             UIMenager.instance.UpdateAmmoText(currentAmmo, maxAmmo);
 
         audioSource.PlayOneShot(shootSFX);
+        handGunAnim.SetTrigger("Fire");
+
         GameObject MF = Instantiate(muzzleFlash,muzzle.transform.position,transform.rotation*Quaternion.Euler(90,0,0));
         Destroy(MF, 0.05f);
 
